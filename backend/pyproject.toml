@@ -1,0 +1,14 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiostream>=0.6.4",
+    "beanie>=1.29.0",
+    "fastapi[all]>=0.115.7",
+    "motor[srv]>=3.6.1",
+]
+[tool.pytest.ini_options]
+pythonpath = ["src"]
