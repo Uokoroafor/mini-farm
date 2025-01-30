@@ -1,16 +1,7 @@
 ARG PYTHON_VERSION=3.12-slim-bullseye
 FROM python:${PYTHON_VERSION}
 
-# COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
-
-# WORKDIR /usr/src/app
-# COPY uv.lock pyproject.toml ./
-
-# RUN uv sync --frozen
-
-# EXPOSE 3001
-
-# CMD ["uv", "run", ".src/server.py"]
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 # Set working directory
 WORKDIR /usr/src/app
