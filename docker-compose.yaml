@@ -31,7 +31,7 @@ services:
     expose:
       - "3001"
     ports:
-      - "8001:3001"
+      - "3001:3001"
     environment:
       - DEBUG=true
     env_file:
