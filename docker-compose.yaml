@@ -22,7 +22,7 @@ services:
       - "3000"
     ports:
       - "3000:3000"
-    command: "npm run dev"
+    command: "npm install && npm run dev"
   backend:
     image: farm-app/backend
     build: ./backend
@@ -32,7 +32,6 @@ services:
       - "3001"
     ports:
       - "8001:3001"
-    # command: "python src/server.py"
     environment:
       - DEBUG=true
     env_file:
