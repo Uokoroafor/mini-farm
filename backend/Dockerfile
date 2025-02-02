@@ -14,11 +14,11 @@ RUN uv sync --frozen
 COPY . .
 
 # Use a non-root user
-RUN adduser --disabled-password --gecos '' appuser && chown -R appuser /usr/src/app
+RUN adduser --disabled-password --gecos '' appuser && chown -R appuser /usr/src
 USER appuser
 
 # Expose port
 EXPOSE 3001
 
 # Set runtime command
-CMD ["uv", "run", "./src/server.py"]
+CMD ["uv", "run", "./src/main.py"]
