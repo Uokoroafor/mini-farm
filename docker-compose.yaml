@@ -9,6 +9,8 @@ services:
     depends_on:
       - backend
       - frontend
+    networks:
+      - farm-app-network
   frontend:
     image: "node:latest"
     user: "node"
@@ -23,6 +25,8 @@ services:
     ports:
       - "5173:5173"
     command: ["/bin/sh", "-c", "npm install && npm run dev"]
+    networks:
+      - farm-app-network
 
   backend:
     image: farm-app/backend
@@ -38,3 +42,9 @@ services:
     env_file:
       - path: ./.env
         required: true
+    networks:
+      - farm-app-network
+
+networks:
+  farm-app-network:
+    driver: bridge
