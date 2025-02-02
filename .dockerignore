@@ -1,0 +1,53 @@
+# Ignore node_modules (should be installed inside containers)
+node_modules
+npm-debug.log
+yarn-error.log
+pnpm-debug.log
+
+# Ignore local environment and configuration files
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+.DS_Store
+
+# Ignore frontend build files (if applicable)
+frontend/node_modules
+frontend/dist
+frontend/.next
+frontend/.nuxt
+frontend/build
+
+# Ignore backend build files
+backend/node_modules
+backend/dist
+backend/build
+
+# Ignore logs and cache files
+logs
+*.log
+backend/logs
+frontend/logs
+mongo_data
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore OS-specific and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+Thumbs.db
+
+# Ignore Docker-related files
+docker-compose.override.yml
+Dockerfile.*
+
+# Ignore Git files
+.git
+.gitignore
