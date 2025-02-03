@@ -1,7 +1,7 @@
 [project]
 name = "backend"
 version = "0.1.0"
-description = "Add your description here"
+description = "This is the backend of the repository of the mini-farm app. The dependencies are managed by uv."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
