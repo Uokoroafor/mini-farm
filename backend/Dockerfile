@@ -1,7 +1,7 @@
 ARG PYTHON_VERSION=3.12-slim-bullseye
 FROM python:${PYTHON_VERSION}
 
-COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:0.5.28 /uv /uvx /bin/
 
 # Set working directory
 WORKDIR /usr/src/app
