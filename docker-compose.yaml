@@ -47,6 +47,12 @@ services:
       - "3001"
     ports:
       - "3001:3001"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3001/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
     environment:
       - DEBUG=true
     env_file:
@@ -54,6 +60,13 @@ services:
         required: true
     networks:
       - farm-app-network
+
+  test:
+      image: curlimages/curl:latest
+      depends_on:
+        backend:
+          condition: service_healthy
+      command: ["curl", "--fail", "http://backend:3001/health"]
 
 networks:
   farm-app-network:
