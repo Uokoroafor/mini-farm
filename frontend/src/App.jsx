@@ -1,11 +1,11 @@
-import './styles/App.css'
+import "./styles/App.css";
 import { useEffect, useState } from "react";
-import axios from "axios";
-import ListToDoLists from "./ListTodoLists";
-import ToDoList from "./ToDoList";
+import api from "./api";
+import ListToDoLists from "./components/ListTodoLists";
+import ToDoList from "./components/ToDoList";
 
 function App() {
-  const [listSummaries, setListSummaries] = useState(null);
+  const [listSummaries, setListSummaries] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ function App() {
   }, []);
 
   async function reloadData() {
-    const response = await axios.get("/lists");
+    const response = await api.get(`/api/lists`);
     const data = await response.data;
     setListSummaries(data);
   }
@@ -24,7 +24,7 @@ function App() {
         name: newName,
       };
 
-      await axios.post(`/lists`, newListData);
+      await api.post(`/api/lists`, newListData);
       reloadData().catch(console.error);
     };
     updateData();
@@ -32,7 +32,7 @@ function App() {
 
   function handleDeleteToDoList(id) {
     const updateData = async () => {
-      await axios.delete(`/lists/${id}`);
+      await api.delete(`/api/lists/${id}`);
       reloadData().catch(console.error);
     };
     updateData();
