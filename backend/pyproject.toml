@@ -9,6 +9,9 @@ dependencies = [
     "beanie>=1.29.0",
     "fastapi[all]>=0.115.7",
     "motor[srv]>=3.6.1",
+    "passlib[bcrypt]>=1.7.4",
+    "pyjwt>=2.10.1",
+    "python-jose[cryptography]>=3.3.0",
 ]
 [tool.pytest.ini_options]
 pythonpath = ["src"]
