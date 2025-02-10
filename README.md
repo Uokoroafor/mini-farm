@@ -1,6 +1,6 @@
 # Mini-Farm
 
-Min-Farm is a full-stack **FARM stack** (FastAPI, React, MongoDB) application designed to explore the integration of these technologies in a simple yet robust **to-do app**. This project serves as a learning playground for leveraging the FARM stack and can be used as a boilerplate for future projects.  
+Mini-Farm is a full-stack **FARM stack** (FastAPI, React, MongoDB) application designed to explore the integration of these technologies in a simple yet robust **to-do app**. This project serves as a learning playground for leveraging the FARM stack and can be used as a boilerplate for future projects.  
 
 The app is containerised with **Docker Compose** for ease of deployment, and **NGINX** is used as a reverse proxy to manage frontend and backend services.  
 
@@ -116,7 +116,7 @@ VITE_API_BASE_URL=http://localhost/api
 ## Folder Structure  
 
 ```  
-farmiliar/  
+mini-farm/  
 ├── backend/  
 │   ├── app/  
 │   │   ├── main.py         # Entry point for FastAPI  
