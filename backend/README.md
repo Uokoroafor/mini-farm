@@ -4,11 +4,11 @@
 The **Mini-Farm Backend** is built with **FastAPI** and uses **MongoDB** as the database. This backend provides a RESTful API to manage tasks in a **FARM stack** (**FastAPI, React, and MongoDB**) to-do application. It is containerised using Docker and can be orchestrated with Docker Compose and serves the final build using **Nginx** for production.
 
 ## Features
-- ⚡ **FastAPI** for high-performance backend services
-- 🗄 **MongoDB** as a NoSQL database
-- 🚀 **Docker & Docker Compose** for easy deployment
-- 📄 **Swagger UI** for API documentation
-- 🔒 **Environment-based configuration**
+- **FastAPI** for high-performance backend services
+- **MongoDB** as a NoSQL database
+- **Docker & Docker Compose** for easy deployment
+- **Swagger UI** for API documentation
+- **Environment-based configuration**
 
 ---
 
@@ -27,8 +27,9 @@ source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 ```
 
 ### 3. Install Dependencies
+The backend dependencies are managed through [uv](https://docs.astral.sh/uv/getting-started/).To use, you must first[Install uv](https://docs.astral.sh/uv/getting-started/installation/) and then run the below command:
 ```sh
-pip install -r requirements.txt
+uv sync --frozen
 ```
 
 ### 4. Configure Environment Variables
@@ -62,7 +63,6 @@ To start both **MongoDB** and the backend:
 ```sh
 docker-compose up --build
 ```
-
 ---
 
 ## License
