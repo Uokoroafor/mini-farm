@@ -27,7 +27,7 @@ source venv/bin/activate  # On Windows use `venv\Scripts\activate`
 ```
 
 ### 3. Install Dependencies
-The backend dependencies are managed through [uv](https://docs.astral.sh/uv/getting-started/).To use, you must first[Install uv](https://docs.astral.sh/uv/getting-started/installation/) and then run the below command:
+The backend dependencies are managed through [uv](https://docs.astral.sh/uv/getting-started/). To use, you must first[Install uv](https://docs.astral.sh/uv/getting-started/installation/) and then run the below command:
 ```sh
 uv sync --frozen
 ```

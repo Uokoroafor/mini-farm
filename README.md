@@ -73,6 +73,14 @@ VITE_API_BASE_URL=http://localhost/api
 2. Access the application:  
    - Frontend: `http://localhost`  
    - API: `http://localhost/api`  
+#### Generating a Secret Key
+
+The backend of the application requires a secure secret key for authentication. To generate one:
+
+1. Run the following command:
+   ```bash
+   make generate-secret
+Copy the output and set it as the `SECRET_KEY` variable in the `.env` file
 
 ### 4. Run Locally (Optional)  
 
