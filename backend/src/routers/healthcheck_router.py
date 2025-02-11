@@ -1,7 +1,7 @@
 from datetime import datetime
 from bson import ObjectId
 from fastapi import APIRouter, Request, HTTPException
-from schemas.todo_schemas import HealthCheckResponse
+from schemas.healthcheck_schemas import HealthCheckResponse
 
 router = APIRouter(prefix="/health")
 
