@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.middleware.base import BaseHTTPMiddleware
+from logger import logger
 import time
 
 
@@ -9,7 +10,7 @@ class LoggingMiddleware(BaseHTTPMiddleware):
         start_time = time.time()
         response = await call_next(request)
         process_time = time.time() - start_time
-        print(
+        logger.info(
             f"Request {request.method} {request.url} completed in {process_time:.2f}s"
         )
         return response
