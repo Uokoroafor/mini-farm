@@ -1,8 +1,8 @@
 import "./styles/App.css";
 import { useEffect, useState } from "react";
 import api from "./api";
-import ListToDoLists from "./components/ListTodoLists";
-import ToDoList from "./components/ToDoList";
+import ListToDoLists from "./components/todo/ListTodoLists";
+import ToDoList from "./components/todo/ToDoList";
 
 function App() {
   const [listSummaries, setListSummaries] = useState([]);
