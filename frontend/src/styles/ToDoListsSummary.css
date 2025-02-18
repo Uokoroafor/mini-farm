@@ -1,4 +1,4 @@
-.ListToDoLists .summary {
+.ToDoListsSummary .summary {
     border: 1px solid lightgray;
     padding: 1em;
     margin: 1em;
@@ -6,7 +6,7 @@
     display: flex;
   }
   
-  .ListToDoLists .count {
+  .ToDoListsSummary .count {
     padding-left: 1ex;
     color: blueviolet;
     font-size: 92%;

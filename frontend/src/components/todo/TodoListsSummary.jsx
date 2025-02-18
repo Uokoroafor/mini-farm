@@ -1,8 +1,8 @@
-import "../../styles/ListTodoLists.css";
+import "../../styles/ToDoListsSummary.css";
 import { useRef } from "react";
 import { BiSolidTrash } from "react-icons/bi";
 
-function ListToDoLists({
+function ToDoListsSummary({
   listSummaries,
   handleSelectList,
   handleNewToDoList,
@@ -11,31 +11,30 @@ function ListToDoLists({
   const labelRef = useRef();
   console.log("listSummaries:", listSummaries);
 
-
   if (listSummaries === null) {
-    return <div className="ListToDoLists loading">Loading to-do lists ...</div>;
+    return <div className="ToDoListsSummary loading">Loading to-do lists ...</div>;
   } else if (listSummaries.length === 0) {
     return (
-      <div className="ListToDoLists">
+      <div className="ToDoListsSummary">
         <div className="box">
-        <label>
-          New To-Do List:&nbsp;
-          <input id={labelRef} type="text" />
-        </label>
-        <button
-          onClick={() =>
-            handleNewToDoList(document.getElementById(labelRef).value)
-          }
-        >
-          New
-        </button>
+          <label>
+            New To-Do List:&nbsp;
+            <input id={labelRef} type="text" />
+          </label>
+          <button
+            onClick={() =>
+              handleNewToDoList(document.getElementById(labelRef).value)
+            }
+          >
+            New
+          </button>
         </div>
         <p>There are no to-do lists!</p>
       </div>
     );
   }
   return (
-    <div className="ListToDoLists">
+    <div className="ToDoListsSummary">
       <h1>All To-Do Lists</h1>
       <div className="box">
         <label>
@@ -76,4 +75,4 @@ function ListToDoLists({
   );
 }
 
-export default ListToDoLists;
+export default ToDoListsSummary;
