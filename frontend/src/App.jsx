@@ -1,71 +1,41 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContext";
+import { ToDoProvider } from "./contexts/ToDoContext";
+import NavBar from "./components/NavBar";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register"
+import Dashboard from "./components/todo/Dashboard";
+import UserProfile from "./components/user/UserProfile";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
 import "./styles/App.css";
-import { useEffect, useState } from "react";
-import api from "./api";
-import ListToDoLists from "./components/todo/ListTodoLists";
-import ToDoList from "./components/todo/ToDoList";
 
 function App() {
-  const [listSummaries, setListSummaries] = useState([]);
-  const [selectedItem, setSelectedItem] = useState(null);
+  return (
+    <Router className="main-content">
+      <AuthProvider>
+        <ToDoProvider>
+          <NavBar />
+          <Routes>
+            {/* Public Routes */}
+            <Route path="/" element={<Navigate to="/login" />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />}/>
+            <Route path="/register" element={<Register />}/>
+            {/* Protected Routes */}
+            
+            <Route
+              path="/profile"
+              element={<ProtectedRoute><UserProfile /></ProtectedRoute>}
+            />
 
-  useEffect(() => {
-    reloadData().catch(console.error);
-  }, []);
-
-  async function reloadData() {
-    const response = await api.get(`/api/lists`);
-    const data = await response.data;
-    setListSummaries(data);
-  }
-
-  function handleNewToDoList(newName) {
-    const updateData = async () => {
-      const newListData = {
-        name: newName,
-      };
-
-      await api.post(`/api/lists`, newListData);
-      reloadData().catch(console.error);
-    };
-    updateData();
-  }
-
-  function handleDeleteToDoList(id) {
-    const updateData = async () => {
-      await api.delete(`/api/lists/${id}`);
-      reloadData().catch(console.error);
-    };
-    updateData();
-  }
-
-  function handleSelectList(id) {
-    console.log("Selecting item", id);
-    setSelectedItem(id);
-  }
-
-  function backToList() {
-    setSelectedItem(null);
-    reloadData().catch(console.error);
-  }
-
-  if (selectedItem === null) {
-    return (
-      <div className="App">
-        <ListToDoLists
-          listSummaries={listSummaries}
-          handleSelectList={handleSelectList}
-          handleNewToDoList={handleNewToDoList}
-          handleDeleteToDoList={handleDeleteToDoList}
-        />
-      </div>
-    );
-  } else {
-    return (
-      <div className="App">
-        <ToDoList listId={selectedItem} handleBackButton={backToList} />
-      </div>
-    );
-  }
+            {/* Catch-All Route */}
+            <Route path="*" element={<div>404 Page Not Found</div>} />
+          </Routes>
+        </ToDoProvider>
+      </AuthProvider>
+    </Router>
+  );
 }
 
 export default App;
