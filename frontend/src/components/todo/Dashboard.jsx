@@ -1,6 +1,6 @@
 import "../../styles/App.css";
 import { useToDo } from "../../contexts/ToDoContext";
-import ListToDoLists from "../todo/ListTodoLists";
+import ToDoListsSummary from "./TodoListsSummary";
 import ToDoList from "../todo/ToDoList";
 
 function Dashboard() {
@@ -18,7 +18,7 @@ function Dashboard() {
       
       <div className="App">
         {selectedItem === null? (
-        <ListToDoLists
+        <ToDoListsSummary
           listSummaries={listSummaries}
           handleSelectList={handleSelectList}
           handleNewToDoList={handleNewToDoList}
