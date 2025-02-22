@@ -19,13 +19,9 @@ async def login(
     user_crud: UserCRUD = request.app.state.user_CRUD
 
     # Authenticate user using user_crud
-    user = await authenticate_user(
-        form_data.username, form_data.password, user_crud
-    )
+    user = await authenticate_user(form_data.username, form_data.password, user_crud)
     if not user:
-        raise HTTPException(
-            status_code=400, detail="Invalid username or password"
-        )
+        raise HTTPException(status_code=400, detail="Invalid username or password")
 
     # Generate JWT token
     access_token = create_access_token(data={"sub": user.username})
