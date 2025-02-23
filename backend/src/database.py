@@ -28,7 +28,7 @@ class Database:
         # Test database availability
         db_ping = await self.db.command("ping")
         if int(db_ping["ok"]) != 1:
-            msg="Connection is not ok."
+            msg = "Connection is not ok."
             logger.error(msg)
             raise Exception(msg)
 
