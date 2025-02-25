@@ -19,7 +19,7 @@ handlers:
     level: INFO
     formatter: json
     filename: logs/backend.log
-    maxBytes: 5 * 1024 * 1024,  # 5 MB
+    maxBytes: 5242880
     backupCount: 5
 
 loggers:
