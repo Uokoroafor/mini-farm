@@ -29,17 +29,13 @@ class ListCRUD:
         )
         return str(response.inserted_id)
 
-    async def delete_todo_list(
-        self, id_: Union[str, ObjectId], session=None
-    ) -> bool:
+    async def delete_todo_list(self, id_: Union[str, ObjectId], session=None) -> bool:
         response = await self._list_collection.delete_one(
             {"_id": ObjectId(id_)}, session=session
         )
         return response.deleted_count == 1
 
-    async def get_todo_list(
-        self, id_: Union[str, ObjectId], session=None
-    ) -> bool:
+    async def get_todo_list(self, id_: Union[str, ObjectId], session=None) -> bool:
         doc = await self._list_collection.find_one(
             {"_id": ObjectId(id_)}, session=session
         )

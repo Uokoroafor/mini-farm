@@ -19,9 +19,7 @@ class PyObjectId(str):
                     core_schema.chain_schema(
                         [
                             core_schema.str_schema(),
-                            core_schema.no_info_plain_validator_function(
-                                cls.validate
-                            ),
+                            core_schema.no_info_plain_validator_function(cls.validate),
                         ]
                     ),
                 ]
@@ -48,9 +46,7 @@ class User(BaseModel):
     email: EmailStr
     hashed_password: str
     is_active: bool = True
-    created_at: datetime = Field(
-        default_factory=lambda: datetime.now(tz=timezone.utc)
-    )
+    created_at: datetime = Field(default_factory=lambda: datetime.now(tz=timezone.utc))
 
     class Config:
         population_by_name = True
