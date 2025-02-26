@@ -1,5 +1,5 @@
 // src/Register.jsx
-import React, { useState, useContext } from "react";
+import { useState, useContext } from "react";
 import { AuthContext } from "../../contexts/AuthContext.jsx";
 
 const Register = () => {
