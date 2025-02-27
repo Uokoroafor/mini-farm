@@ -1,9 +1,10 @@
-import { createContext, useState, useEffect, useContext } from "react";
+import { createContext, useState, useEffect } from "react";
+import PropTypes from "prop-types";
 import api from "../api";
 
 const ToDoContext = createContext();
 
-export const ToDoProvider = ({ children }) => {
+const ToDoProvider = ({ children }) => {
   const [listSummaries, setListSummaries] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
 
@@ -61,6 +62,9 @@ export const ToDoProvider = ({ children }) => {
   );
 };
 
-export function useToDo() {
-  return useContext(ToDoContext);
-}
+// Add PropTypes validation
+ToDoProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
+
+export { ToDoProvider, ToDoContext };

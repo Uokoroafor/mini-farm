@@ -1,11 +1,12 @@
 import { createContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 import api from "../api";
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
-  const [token, setToken] = useState(localStorage.getItem("token"));
+  const [token] = useState(localStorage.getItem("token"));
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
@@ -87,6 +88,11 @@ const AuthProvider = ({ children }) => {
       {children}
     </AuthContext.Provider>
   );
+};
+
+// Add PropTypes validation
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
 
 export { AuthProvider, AuthContext };
