@@ -1,5 +1,6 @@
 import "../../styles/ToDoList.css";
 import { useEffect, useState, useRef } from "react";
+import PropTypes from "prop-types";
 import api from '../../api'
 import { BiSolidTrash } from "react-icons/bi";
 
@@ -54,7 +55,7 @@ function ToDoList({ listId, handleBackButton }) {
     return (
       <div className="ToDoList loading">
         <button className="back" onClick={handleBackButton}>
-          Back
+          All Lists
         </button>
         Loading to-do list ...
       </div>
@@ -63,7 +64,7 @@ function ToDoList({ listId, handleBackButton }) {
   return (
     <div className="ToDoList">
       <button className="back" onClick={handleBackButton}>
-        Back
+        All Lists
       </button>
       <h1>List: {listData.name}</h1>
       <div className="box">
@@ -76,7 +77,7 @@ function ToDoList({ listId, handleBackButton }) {
             handleCreateItem(document.getElementById(labelRef).value)
           }
         >
-          New
+          Create
         </button>
       </div>
       {listData.items.length > 0 ? (
@@ -108,5 +109,11 @@ function ToDoList({ listId, handleBackButton }) {
     </div>
   );
 }
+
+// Add PropTypes validation
+ToDoList.propTypes = {
+  listId: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired, // Can be string or number
+  handleBackButton: PropTypes.func.isRequired, // Must be a function
+};
 
 export default ToDoList;
