@@ -1,5 +1,5 @@
-// src/UserProfile.jsx
-import React, { useContext } from 'react';
+import "../../styles/UserProfile.css"
+import { useContext } from 'react';
 import { AuthContext } from '../../contexts/AuthContext.jsx';
 
 const UserProfile = () => {
@@ -10,11 +10,13 @@ const UserProfile = () => {
     }
 
     return (
-        <div>
+        <div class="page-container">
             <h2>User Profile</h2>
+            <div class="card">
             <p>Username: {user.username}</p>
             <p>Email: {user.email}</p>
-            <button onClick={logout}>Logout</button>
+            </div>
+            <button class="button" onClick={logout}>Logout</button>
         </div>
     );
 };
