@@ -62,4 +62,4 @@ jobs:
 
       # ---- CHECK DOCKER BUILD ----
       - name: Check Docker Build
-        run: docker-compose build
+        run: docker compose build
