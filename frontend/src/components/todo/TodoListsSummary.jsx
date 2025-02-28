@@ -1,5 +1,6 @@
 import "../../styles/ToDoListsSummary.css";
 import { useRef } from "react";
+import PropTypes from "prop-types";
 import { BiSolidTrash } from "react-icons/bi";
 
 function ToDoListsSummary({
@@ -18,7 +19,7 @@ function ToDoListsSummary({
       <div className="ToDoListsSummary">
         <div className="box">
           <label>
-            New To-Do List:&nbsp;
+          New List Name:&nbsp;
             <input id={labelRef} type="text" />
           </label>
           <button
@@ -26,7 +27,7 @@ function ToDoListsSummary({
               handleNewToDoList(document.getElementById(labelRef).value)
             }
           >
-            New
+            Create
           </button>
         </div>
         <p>There are no to-do lists!</p>
@@ -38,7 +39,7 @@ function ToDoListsSummary({
       <h1>All To-Do Lists</h1>
       <div className="box">
         <label>
-          New To-Do List:&nbsp;
+          New List Name:&nbsp;
           <input id={labelRef} type="text" />
         </label>
         <button
@@ -46,7 +47,7 @@ function ToDoListsSummary({
             handleNewToDoList(document.getElementById(labelRef).value)
           }
         >
-          New
+          Create
         </button>
       </div>
       {listSummaries.map((summary) => {
@@ -74,5 +75,18 @@ function ToDoListsSummary({
     </div>
   );
 }
+
+ToDoListsSummary.propTypes = {
+  listSummaries: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+      name: PropTypes.string.isRequired,
+      item_count: PropTypes.number.isRequired,
+    })
+  ).isRequired,
+  handleSelectList: PropTypes.func.isRequired,
+  handleNewToDoList: PropTypes.func.isRequired,
+  handleDeleteToDoList: PropTypes.func.isRequired,
+};
 
 export default ToDoListsSummary;
