@@ -1,6 +1,5 @@
 # Mini-Farm
 ![Build Status](https://github.com/uokoroafor/mini-farm/actions/workflows/main.yaml/badge.svg)
-![Test Status](https://github.com/uokoroafor/mini-farm/actions/workflows/main.yaml/badge.svg)
 
 
 Mini-Farm is a full-stack **FARM stack** (FastAPI, React, MongoDB) application designed to explore the integration of these technologies in a **to-do app**. This project serves as a playground for leveraging the FARM stack and can be used as a boilerplate for future projects.
@@ -24,9 +23,7 @@ The app is containerised with **Docker Compose** for ease of deployment, and **N
 ---
 
 ## Tech Stack  
-<img src="frontend/src/assets/FastAPI_logo.png" width="100">
-<img src="frontend/src/assets/react.svg">
-<img src="frontend/src/assets/MongoDB_logo.png" width="100">
+<img src="frontend/src/assets/FastAPI_logo.png" width="100"><img src="frontend/src/assets/react.svg"><img src="frontend/src/assets/MongoDB_logo.png" width="100">
 
 ### Frontend  
 - **React**: For building a modern and interactive user interface.  
