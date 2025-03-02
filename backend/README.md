@@ -22,8 +22,8 @@ cd mini-farm/backend
 
 ### 2. Create a Virtual Environment (Optional)
 ```sh
-python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+python -m venv .venv
+source .venv/bin/activate
 ```
 
 ### 3. Install Dependencies
@@ -37,7 +37,7 @@ Create a `.env` file in the root directory and configure the following variables
 ```sh
 MONGODB_URI='mongodb://mongo:27017'
 DATABASE_NAME=''
-PORT=8000
+PORT=3001
 HOST="0.0.0.0"
 ```
 
@@ -46,8 +46,8 @@ HOST="0.0.0.0"
 uv run main.py
 ```
 
-The API will be available at: **`http://localhost:8000`** by default 
-Swagger UI: **`http://localhost:8000/docs`** by default
+The API will be available at: **`http://localhost:3001`** by default 
+Swagger UI: **`http://localhost:3001/docs`** by default
 
 ---
 ## Running with Docker
@@ -55,7 +55,7 @@ Swagger UI: **`http://localhost:8000/docs`** by default
 ### 1. Build and Start the Backend Container
 ```sh
 docker build -t mini-farm-backend .
-docker run -p 8000:8000 --env-file .env mini-farm-backend
+docker run -p 3001:3001 --env-file .env mini-farm-backend
 ```
 
 ### 2. Using Docker Compose (Recommended)
