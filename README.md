@@ -1,6 +1,11 @@
 # Mini-Farm
+![Build Status](https://github.com/uokoroafor/mini-farm/actions/workflows/main.yaml/badge.svg)
+![Test Status](https://github.com/uokoroafor/mini-farm/actions/workflows/main.yaml/badge.svg)
 
-Mini-Farm is a full-stack **FARM stack** (FastAPI, React, MongoDB) application designed to explore the integration of these technologies in a simple **to-do app**. This project serves as a learning playground for leveraging the FARM stack and can be used as a boilerplate for future projects.  
+
+Mini-Farm is a full-stack **FARM stack** (FastAPI, React, MongoDB) application designed to explore the integration of these technologies in a **to-do app**. This project serves as a playground for leveraging the FARM stack and can be used as a boilerplate for future projects.
+
+
 
 The app is containerised with **Docker Compose** for ease of deployment, and **NGINX** is used as a reverse proxy to manage frontend and backend services.  
 
@@ -12,18 +17,19 @@ The app is containerised with **Docker Compose** for ease of deployment, and **N
 - **User-Friendly Interface**: A clean and responsive React-based front end, powered by Vite for fast builds.  
 - **Backend API**: A lightweight and efficient FastAPI backend for handling CRUD operations.  
 - **Database Integration**: MongoDB for storing tasks and user data, ensuring scalability.
-- **Authentication**: Basic authentication system (optional for MVP, to be expanded in future iterations).  
+- **Authentication**: Basic authentication system
 - **Containerisation**: Docker Compose simplifies deployment and configuration.  
 - **Reverse Proxy**: NGINX handles request routing for seamless frontend and backend integration.  
 
 ---
 
 ## Tech Stack  
+<img src="frontend/src/assets/FastAPI_logo.png" width="100">
+<img src="frontend/src/assets/react.svg">
+<img src="frontend/src/assets/MongoDB_logo.png" width="100">
 
 ### Frontend  
 - **React**: For building a modern and interactive user interface.  
-<!-- - **Vite**: For a fast development server and build process.  
-- **Tailwind CSS**: Provides clean and minimalistic design.   -->
 
 ### Backend  
 - **FastAPI**: High-performance backend API framework.  
@@ -54,15 +60,20 @@ cd mini-farm
 ```  
 
 ### 2. Set Up Environment Variables  
-Create a `.env` file in the root directory with the following content:  
-```env
-SECRET_KEY=your_secret_key_here
-MONGODB_URI='mongodb://mongo:27017'
-DATABASE_NAME=''
-ALGORITHM = "HS256"
+Create a `.env` file in the root directory with the following content. Feel free to adjust as required:  
+```sh
+# Security & Authentication
+SECRET_KEY=your_secret_key_here # Generate using instructions below
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
+ALGORITHM = HS256 # or RS256 (More info: https://auth0.com/blog/rs256-vs-hs256-whats-the-difference/)
+
+# Database
+MONGODB_URI=mongodb://mongo:27017
+DATABASE_NAME=test_database
+
+# Server Configuration
 PORT=3001
-HOST="0.0.0.0"
+HOST=0.0.0.0
 ```
 This is also detailed in the `.env.sample` file
 
@@ -125,52 +136,6 @@ mini-farm/
 ├── Makefile                  # Makefile for build and deployment commands
 └── README.md                 # Root documentation (project overview, setup)
 ```
-
-
-<!-- ```  
-mini-farm/  
-├── backend/  
-│   ├── src/  
-│   │   ├── auth/           
-│   │   ├── crud/       
-│   │   ├── models/       
-│   │   ├── routers/      
-│   │   ├── schemas/        
-│   │   ├── tests/        
-│   │   ├── config.py      
-│   │   ├── database.py       
-│   │   ├── dependencies.py     
-│   │   ├── lifecycle.py       
-│   │   ├── logger.py      
-│   │   ├── main.py      
-│   │   └── middleware.py       
-│   ├── Dockerfile           
-│   ├── logging_config.yaml          
-│   ├── README.md           
-│   ├── uv.lock            
-│   └── pyproject.toml      
-├── frontend/  
-│   ├── src/  
-│   │   ├── __tests__/     
-│   │   ├── components/     
-│   │   ├── contexts/       
-│   │   ├── styles        
-│   │   ├── api.js       
-│   │   ├── App.jsx          
-│   │   ├── main.jsx         
-│   │   ├── components/     
-│   │   ├── pages/          
-│   │   ├── App.jsx         
-│   │   └── main.jsx        
-│   ├── README.md            
-│   ├── vite.config.js     
-│   └── package.json       
-├── nginx/  
-│   └── nginx.conf         
-├── docker-compose.yaml      
-├── Makefile      
-└── README.md               
-```   -->
 ---
 
 ## Contribution Guidelines  
