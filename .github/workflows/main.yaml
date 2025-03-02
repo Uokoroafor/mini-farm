@@ -3,7 +3,7 @@ name: CI Pipeline
 on:
   push:
     branches:
-      - feat-going-live
+      - main
   pull_request:
     branches:
       - main
