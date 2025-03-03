@@ -22,8 +22,8 @@ cd mini-farm/backend
 
 ### 2. Create a Virtual Environment (Optional)
 ```sh
-python -m venv venv
-source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+python -m venv .venv
+source .venv/bin/activate
 ```
 
 ### 3. Install Dependencies
@@ -35,10 +35,18 @@ uv sync --frozen
 ### 4. Configure Environment Variables
 Create a `.env` file in the root directory and configure the following variables
 ```sh
-MONGODB_URI='mongodb://mongo:27017'
-DATABASE_NAME=''
-PORT=8000
-HOST="0.0.0.0"
+# Security & Authentication
+SECRET_KEY=your_secret_key_here # Generate using instructions below
+ACCESS_TOKEN_EXPIRE_MINUTES = 30
+ALGORITHM = HS256 # or RS256 (More info: https://auth0.com/blog/rs256-vs-hs256-whats-the-difference/)
+
+# Database
+MONGODB_URI=mongodb://mongo:27017
+DATABASE_NAME=test_database
+
+# Server Configuration
+PORT=3001
+HOST=0.0.0.0
 ```
 
 ### 5. Run the Backend Server
@@ -46,8 +54,8 @@ HOST="0.0.0.0"
 uv run main.py
 ```
 
-The API will be available at: **`http://localhost:8000`** by default 
-Swagger UI: **`http://localhost:8000/docs`** by default
+The API will be available at: **`http://localhost:3001`** by default 
+Swagger UI: **`http://localhost:3001/docs`** by default
 
 ---
 ## Running with Docker
@@ -55,7 +63,7 @@ Swagger UI: **`http://localhost:8000/docs`** by default
 ### 1. Build and Start the Backend Container
 ```sh
 docker build -t mini-farm-backend .
-docker run -p 8000:8000 --env-file .env mini-farm-backend
+docker run -p 3001:3001 --env-file .env mini-farm-backend
 ```
 
 ### 2. Using Docker Compose (Recommended)
@@ -73,5 +81,4 @@ This project is licensed under the **MIT License**.
 ## Contact
 For questions create an issue in the repo.
 
-Happy coding!
 

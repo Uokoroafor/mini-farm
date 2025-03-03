@@ -10,13 +10,13 @@ const UserProfile = () => {
     }
 
     return (
-        <div class="page-container">
+        <div className="page-container">
             <h2>User Profile</h2>
-            <div class="card">
+            <div className="card">
             <p>Username: {user.username}</p>
             <p>Email: {user.email}</p>
             </div>
-            <button class="button" onClick={logout}>Logout</button>
+            <button className="button" onClick={logout}>Logout</button>
         </div>
     );
 };
