@@ -81,5 +81,4 @@ This project is licensed under the **MIT License**.
 ## Contact
 For questions create an issue in the repo.
 
-Happy coding!
 
