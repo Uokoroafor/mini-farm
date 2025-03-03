@@ -1,14 +1,14 @@
 # Mini-Farm Frontend
 
 ## Overview
-The **Mini-Farm Frontend** is built with **React** and serves as the client-side application for the **FARM stack** (**FastAPI, React, MongoDB**) to-do application. It interacts with the backend API to provide a responsive user experience. The frontend is integrated with the backend and MongoDB using **Docker Compose** and serves the final build using **Nginx** for production.
+The **Mini-Farm Frontend** is built with **React** and serves as the client-side application for the **FARM stack** (**FastAPI, React, MongoDB**) to-do application. It interacts with the backend API. The frontend is integrated with the backend and MongoDB using **Docker Compose** and serves the final build using **Nginx** for production.
 
 ## Features
-- ⚛️ **React** for building interactive UIs
-- 🌐 **Axios** for API communication
-- 💅 **CSS/Styled Components/TailwindCSS** for clean, customisable styling
-- 📦 **Production-ready builds** served with Nginx
-- 🛠 **Environment-based configuration** for API URLs and other settings
+- **React** for building interactive UIs
+- **Axios** for API communication
+- **CSS Styled Components** for clean, customisable styling
+- **Production-ready builds** served with Nginx
+- **Environment-based configuration** for API URLs and other settings
 
 ---
 
@@ -44,7 +44,3 @@ This project is licensed under the **MIT License**.
 For questions, create an issue in the repo.
 
 Happy coding!
-
----
-
-Let me know if you’d like me to further tweak the Nginx explanation or Docker Compose instructions!

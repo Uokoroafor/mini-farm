@@ -35,10 +35,18 @@ uv sync --frozen
 ### 4. Configure Environment Variables
 Create a `.env` file in the root directory and configure the following variables
 ```sh
-MONGODB_URI='mongodb://mongo:27017'
-DATABASE_NAME=''
+# Security & Authentication
+SECRET_KEY=your_secret_key_here # Generate using instructions below
+ACCESS_TOKEN_EXPIRE_MINUTES = 30
+ALGORITHM = HS256 # or RS256 (More info: https://auth0.com/blog/rs256-vs-hs256-whats-the-difference/)
+
+# Database
+MONGODB_URI=mongodb://mongo:27017
+DATABASE_NAME=test_database
+
+# Server Configuration
 PORT=3001
-HOST="0.0.0.0"
+HOST=0.0.0.0
 ```
 
 ### 5. Run the Backend Server
